@@ -1,0 +1,333 @@
+<!--
+<div class="card text-center mb-3 mb-5 mt-5 mx-3 d-flex justify-content-center row">
+  <div class="">
+  <img src="../../assets/Screenshot_21.png" style="height: 10%;width: 25%;" class="card-img-top" alt="...">
+  </div>
+  <div class="card-body  col-md-8 d-flex flex-column comment-section">
+     <h5 class="card-title">Card title</h5>
+    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+    <div class="bg-white">
+      <div class="d-flex flex-row fs-12">
+          <div class="like p-2 cursor"><i class="fa fa-thumbs-o-up"></i><span class="ml-1">Like</span></div>
+          <div class="like p-2 cursor"><i class="fa fa-commenting-o"></i><span class="ml-1">Comment</span></div>
+          <div class="like p-2 cursor"><i class="fa fa-share"></i><span class="ml-1">Share</span></div>
+      </div>
+
+  </div>
+  </div>
+  <div class="card-footer">Footer</div>
+
+</div> -->
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <title>Final - LinkedIn UI Clone</title>
+  </head>
+  <body>
+    <div class="header">
+      <div class="header__left">
+        <!-- <img src="https://www.flaticon.com/svg/static/icons/svg/174/174857.svg" alt="" /> -->
+        <i class="bx bxl-linkedin bg-primary" style="height: 22px;"></i>
+        <div class="header__search">
+          <i class="material-icons"> search </i>
+          <input type="text" />
+        </div>
+      </div>
+
+      <div class="header__right">
+        <div class="headerOption">
+          <i class="material-icons headerOption__icon"> home </i>
+          <h3>Home</h3>
+        </div>
+        <div class="headerOption">
+          <i class="material-icons headerOption__icon"> supervisor_account </i>
+          <h3>My Network</h3>
+        </div>
+        <div class="headerOption">
+          <i class="material-icons headerOption__icon"> business_center </i>
+          <h3>Jobs</h3>
+        </div>
+        <div class="headerOption">
+          <i class="material-icons headerOption__icon"> chat </i>
+          <h3>Messaging</h3>
+        </div>
+        <div class="headerOption">
+          <i class="material-icons headerOption__icon"> notifications </i>
+          <h3>Notifications</h3>
+        </div>
+        <div class="headerOption">
+          <i class="material-icons headerOption__icon"> account_circle </i>
+          <h3>Me</h3>
+        </div>
+      </div>
+    </div>
+
+    <div class="feed">
+      <div class="feed__inputContainer">
+        <div class="feed__input">
+          <i class="material-icons"> create </i>
+          <form>
+            <input
+              type="text"
+              placeholder="start a post"
+              data-bs-toggle="modal"
+              data-bs-target="#exampleModalCenter1"
+              disabled
+            />
+
+            <button type="submit">Send</button>
+          </form>
+        </div>
+
+        <div class="feed__inputOptions">
+          <div class="inputOption">
+            <i style="color: #70b5f9" class="material-icons"> insert_photo </i>
+            <h4>Photo</h4>
+          </div>
+          <div class="inputOption">
+            <i style="color: #e7a33e" class="material-icons"> subscriptions </i>
+            <h4>Video</h4>
+          </div>
+          <div class="inputOption">
+            <i style="color: #c0cbcd" class="material-icons"> event_note </i>
+            <h4>Event</h4>
+          </div>
+          <div class="inputOption">
+            <i style="color: #7fc15e" class="material-icons">
+              calendar_view_day
+            </i>
+            <h4>Write Article</h4>
+          </div>
+        </div>
+      </div>
+      <div
+        class="modal fade"
+        data-bs-backdrop="false"
+        id="exampleModalCenter1"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div
+          class="modal-dialog modal-lg card"
+          style="margin-left: 28%; margin-top: 7%; width: 35%; height: auto"
+        >
+          <div
+            class="modal-content"
+            style="padding: 20px; border: none; height: 50%"
+          >
+            <div class="modal-header">
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+
+            <div class="modal-body w-5 h-50 ml-3 mr-2">
+              <div class="heading ion-padding">
+                <h4 class="text-center mt-4"style="font-family:verdana;font-size:20px;">Create a Post?</h4>
+              </div>
+
+              <form [formGroup]="addPostForm" (ngSubmit)="addPost()">
+                <div class="container mt-5 mb-5">
+                  <div class="item-divider"></div>
+
+                  <div class="container">
+                    <div class="justify-content-start">
+                      <div size="auto">
+                        <img
+                          src="../../assets/Screenshot_21.png"
+                          style="height: 60px; width: 60px"
+                        />
+                      </div>
+                      <div class="col">
+                        <div><p style="font-family:verdana;font-size:15px;">Vaishnavi patil</p></div>
+                      </div>
+
+                      <div>
+                        <textarea
+                          row="60"
+                          col="700"
+                          placeholder="What do you want to talk about?"
+                          formControlName="post_body"
+                          style="min-width: 100%; border: none; outline: none;overflow: auto;
+                          outline: none;
+                          -webkit-box-shadow: none;
+                          -moz-box-shadow: none;
+                          box-shadow: none;
+                          resize: none;
+                          font-family:verdana"
+                        ></textarea>
+                        <div *ngIf="f['post_body'].touched && (f['post_body'].dirty || f['post_body'].invalid)" class="invalid-feedback">
+                          <div *ngIf="f['post_body'].errors?.['required']"> Text  is required</div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="row" style="height: 200px"></div>
+                    <a class="fw-bold">Add Hashtag</a>
+
+                    <div class="row">
+                      <div class="col-6">
+                        <input type="file" formControlName="photo" class="media" #fileInput (change)="uploadFile($event)" >
+                        <i class="fas fa-camera p-2 hoverclass"   data-bs-toggle="modal"
+                        data-bs-target="#exampleModalCenter2" (click)="fileInput.click()" ></i>
+                        <i class="fa fa-play-circle p-2 hoverclass"></i>
+                        <i class="fa fa-file p-2 hoverclass"></i>
+                        <i class="fas fa-comment p-2 hoverclass">Anyone</i>
+                      </div>
+                      <div class="col-6" style="text-align: right">
+                        <button
+                          type="submit"
+                          class="btn btn-primary p-2 pl-2 pr-2"
+                          style="text-align: right"
+                          data-bs-dismiss="modal"
+                          aria-label="Close"
+                          [disabled]="addPostForm.invalid"
+                        >
+                          Post
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="modal fade"
+        data-bs-backdrop="false"
+        id="exampleModalCenter2"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div
+          class="modal-dialog modal-lg card"
+          style="margin-left: 28%; margin-top: 7%; width: 35%; height: auto"
+        >
+          <div
+            class="modal-content"
+            style="padding: 20px; border: none; height: 50%"
+          >
+            <div class="modal-header">
+              <h5 class="modal-title">Edit your photo</h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+
+            <div class="modal-body fw-bold text-center">
+              <div class="my-5 text-primary">Select images to share<img [src]="imageUrl"style="height: 200px;width: 400px;" ></div>
+              <!-- <img [src]="imageUrl" > -->
+
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"  data-bs-toggle="modal"
+              data-bs-target="#exampleModalCenter1">Back</button>
+              <button type="button" class="btn btn-primary">Done</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+ <!--title and discription  -->
+  <div class="post" *ngFor="let item of data.posts | paginate: { itemsPerPage: 5, currentPage: p }  let i=index;" style="width: 40%">
+      <div class="post__header">
+        <i class="material-icons sidebar__topAvatar"> account_circle </i>
+        <div class="post__info">
+          <h2>{{item.posted_by}}</h2>
+          <p>{{moment(item.createdAt).fromNow()}}</p>
+        </div>
+      </div>
+     <!-- image and message here -->
+      <div class="post__body">
+        <p>{{item.body}}</p>
+        <img src="../../assets/Screenshot_21.png" style="height:100%; width: 100%;">
+      </div>
+
+      <div class="inputOption">
+        <i style="color: gray" class="material-icons"> thumb_up </i>
+        <h5 style="padding-left: 10px;">{{item.likes_count}}</h5>
+          <i style="color: gray" class="material-icons" style="padding-left:70%"> comment </i>
+          <h5 style="padding-left: 10px;">{{item.comment_count}}</h5>
+
+      </div>
+
+      <!-- like comment share and send  -->
+      <div class="feed__inputOptions">
+        <div class="inputOption" *ngIf="!item.likes.includes(currentUser)" (click)="onLike(item['_id'],i)"  >
+
+          <!-- <i style="color: gray" class="material-icons"> thumb_up </i> -->
+          <i style="color: gray;" class="material-icons"> thumb_up </i>
+
+          <h4>Like</h4>
+        </div>
+        <div class="inputOption" *ngIf="item.likes.includes(currentUser)" (click)="onUnlike(item['_id'],i)"  >
+
+          <!-- <i style="color: gray" class="material-icons"> thumb_up </i> -->
+          <i style="color: blue;" class="material-icons"> thumb_up </i>
+
+          <h4>Like</h4>
+        </div>
+        <div class="inputOption" (click)="onComment()">
+          <i style="color: gray" class="material-icons" > comment </i>
+          <h4>Comment</h4>
+          <!-- {{item.comment_count}} -->
+        </div>
+        <div class="inputOption">
+          <i style="color: gray" class="material-icons"> share </i>
+          <h4>Share</h4>
+        </div>
+        <div class="inputOption">
+          <i style="color: gray" class="material-icons"> send </i>
+          <h4>Send</h4>
+        </div>
+       </div>
+
+        <div class="comment_box"style="width: 100%" *ngIf="isComment">
+        <div class="feed__input">
+          <form [formGroup]="commentForm" (ngSubmit)="commentPost(item._id)">
+            <!-- <div> -->
+               <input
+               type="text"
+               placeholder="Add a comment"
+               formControlName="comment"
+               />
+                <input type="file" formControlName="photo" class="media" #post_media1 >
+                <i class="fas fa-camera p-2 hoverclass" (click)="post_media1.click()"></i>
+                <i class="fas fa-comment p-2 hoverclass"></i>
+            <!-- </div> -->
+            <div><button type="submit" class="btn btn-primary mx-3 mt-3" (click)="btn_comment_post()" *ngIf="commentForm.value.comment">Post</button></div>
+
+          </form>
+
+         </div>
+
+         <app-comment-box [comment]="comment" [post_id]="item._id" [comment_id]="comment_id"></app-comment-box>
+    </div>
+</div>
+<pagination-controls (pageChange)="p = $event" class="float-right"></pagination-controls>
+
+
+
+  </body>
+</html>

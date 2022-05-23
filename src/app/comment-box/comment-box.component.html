@@ -1,0 +1,53 @@
+<div *ngIf="comment">
+   <div class="card w-50 mt-4 mx-5"  style="width: 85%!important;background-color: #959da536;">
+     <div class="card-body">
+       <h5 class="card-title"></h5>
+       <p class="card-text">{{comment}}</p>
+
+     </div>
+    </div>
+    <div class="row mt-2" style="width: 100%;margin-left: 3rem;">
+       <p class="col-2" style="display: inline; cursor: pointer;" (click)="onReplyLike()">Like
+           <!-- <i style="color: gray; position: absolute;" class="material-icons"> thumb_up </i> -->
+           <i [ngStyle]="{'color': isReplyLike?'blue':'grey' }" style="position: absolute; margin-top: 0px;" class="material-icons"> thumb_up </i>
+         </p>
+         <p class="col-2" style="display: inline; cursor: pointer;" (click)="onReply()">Reply
+          <i style="color: gray; position: absolute; margin-top: 3px;" class="material-icons" > comment </i></p>
+         <p class="col-2" style="display: inline;cursor: pointer;">Delete<i style="color: gray; position: absolute;" class="material-icons" > delete </i></p>
+   </div>
+</div>
+
+   <div class="feed__input mt-4" *ngIf="isReply">
+     <form [formGroup]="replyForm" (ngSubmit)="replyPost()">
+       <!-- <div> -->
+          <input
+          type="text"
+          placeholder="Add a comment"
+          formControlName="comment1"
+          />
+           <input type="file" class="media"#post_media1 >
+           <i class="fas fa-camera p-2 hoverclass" (click)="post_media1.click()"></i>
+           <i class="fas fa-comment p-2 hoverclass"></i>
+           <div><button type="submit" class="btn btn-primary mx-3 mt-3" *ngIf="replyForm.value" >Reply</button></div>
+
+       <!-- </div> -->
+     </form>
+    </div>
+
+    <div *ngIf="onReplyComment">
+    <div class="card w-50 mt-4 mx-5"  style="width: 85%!important; background-color: #959da536;">
+      <div class="card-body">
+        <h5 class="card-title"></h5>
+        <p class="card-text">{{content}}</p>
+
+      </div>
+     </div>
+     <div class="row mt-2 " style="width: 100%; margin-left: 3rem;">
+        <p class="col-2" style="display: inline; cursor: pointer;" >Like
+            <!-- <i style="color: gray; position: absolute;" class="material-icons"> thumb_up </i> -->
+            <i [ngStyle]="{'color': isReplyLike?'blue':'grey' }" style="position: absolute; margin-top: 0px;" class="material-icons"> thumb_up </i>
+          </p>
+          <p class="col-2" style="display: inline; cursor: pointer;">Reply<i style="color: gray; position: absolute; margin-top: 3px;" class="material-icons" > comment </i></p>
+          <p class="col-2" style="display: inline;cursor: pointer;">Delete<i style="color: gray; position: absolute;" class="material-icons" > delete </i></p>
+    </div>
+    </div>
