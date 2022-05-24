@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 
 @Injectable({
@@ -10,28 +11,28 @@ export class AddPostService {
   constructor(private http:HttpClient) { }
 
   createPost(data:any) {
-    return this.http.post<{data:any,message:string}>(`http://localhost:3000/post/create-post`, data);
+    return this.http.post<{data:any,message:string}>(`${environment.api_url}/post/create-post`, data);
   }
   getPostList(page?:number, recordsPerPage?:number){
-    return this.http.get<{message: string, data: any }>(`http://localhost:3000/post/post-list?page=${page}&recordsPerPage=${recordsPerPage}`);
+    return this.http.get<{message: string, data: any }>(`${environment.api_url}/post/post-list?page=${page}&recordsPerPage=${recordsPerPage}`);
   }
 
   likePost(params: any) {
-    return this.http.put<{message: string, data: any }>(`http://localhost:3000/post/like-post`, params);
+    return this.http.put<{message: string, data: any }>(`${environment.api_url}/post/like-post`, params);
   }
 
   unlikePost(params: any) {
-    return this.http.put<{message: string, data: any }>(`http://localhost:3000/post/unlike-post`, params);
+    return this.http.put<{message: string, data: any }>(`${environment.api_url}/post/unlike-post`, params);
   }
   createComment(data:any,post_id:string) {
-    return this.http.post<{data:any,message:string}>(`http://localhost:3000/post/${post_id}/comments/create`, data);
+    return this.http.post<{data:any,message:string}>(`${environment.api_url}/post/${post_id}/comments/create`, data);
   }
 
   makeReply(data:any,post_id:string, comment_id:string) {
-    return this.http.post<{data:any,message:string}>(`http://localhost:3000/post/${post_id}/${comment_id}/reply/create`, data);
+    return this.http.post<{data:any,message:string}>(`${environment.api_url}/post/${post_id}/${comment_id}/reply/create`, data);
   }
 
   likeReplyPost(post_id:string, comment_id:string) {
-    return this.http.put<{message: string, data: any }>(`http://localhost:3000/post/${post_id}/${comment_id}/like-comment`,{} );
+    return this.http.put<{message: string, data: any }>(`${environment.api_url}/post/${post_id}/${comment_id}/like-comment`,{} );
   }
 }

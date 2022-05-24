@@ -9,8 +9,7 @@ const app = express();
 var cors = require('cors')
 const bodyParser = require('body-parser')
 // connect to mongodb
-mongoose.connect(
-    'mongodb://localhost:27017/linkedinPost',
+mongoose.connect('mongodb+srv://vaishnavi:vaishnavi@taskapp.ux967.mongodb.net/linkedinPost?retryWrites=true&w=majority',
     { useNewUrlParser: true })
     .then(() => {
         console.log("Connected to Database");
