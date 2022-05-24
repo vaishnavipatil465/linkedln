@@ -24,7 +24,7 @@ export class AddPostComponent implements OnInit {
   data:any={};
   params:any;
   @Output() add = new EventEmitter<string>();
-  imageUrl: any;
+  imageUrl: any=null;
   currentPage: number = 1;
   recordsPerPage: number = 7;
   totalRecords: number = 30;
@@ -58,6 +58,7 @@ export class AddPostComponent implements OnInit {
   get f(): { [key: string]: AbstractControl } {
     return this.addPostForm.controls;
   }
+
 
    // On file Select
    onChange(event:any) {
@@ -134,6 +135,8 @@ export class AddPostComponent implements OnInit {
     this.addpostservice.createPost(data).subscribe(resp => {
       console.log(resp);
       this.data.posts.push(resp.data);
+      console.log(resp);
+
     })
   }
 
@@ -147,21 +150,18 @@ export class AddPostComponent implements OnInit {
       console.log(resp.data._id);
       this.comment_id = resp.data._id;
       this.commentForm.reset();
-      // this.data(resp.data);
     })
 
   }
   btn_comment_post(){
-    // if (this.value.trim()) {
-    //   this.add.emit(this.value);
-    //   this.value = '';
-    // }
     this.comment=this.commentForm.value.comment;
     console.log(this.comment);
   }
   // on comment section
-  onComment(){
+  onComment(postid:string, i:number){
     this.isComment=true;
+    this.data.posts[i].isComment = true;
+
   }
 
 

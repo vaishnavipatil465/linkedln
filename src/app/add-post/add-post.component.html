@@ -175,6 +175,9 @@
                       </div>
                     </div>
 
+                    <div *ngIf="imageUrl">
+                      <img [src]="imageUrl"style="height: 200px;width: 400px;" >
+                    </div>
                     <div class="row" style="height: 200px"></div>
                     <a class="fw-bold">Add Hashtag</a>
 
@@ -235,7 +238,9 @@
             </div>
 
             <div class="modal-body fw-bold text-center">
-              <div class="my-5 text-primary">Select images to share<img [src]="imageUrl"style="height: 200px;width: 400px;" ></div>
+              <div class="my-5 text-primary">Select images to share
+                <img [src]="imageUrl"style="height: 200px;width: 400px;" >
+              </div>
               <!-- <img [src]="imageUrl" > -->
 
             </div>
@@ -288,7 +293,7 @@
 
           <h4>Like</h4>
         </div>
-        <div class="inputOption" (click)="onComment()">
+        <div class="inputOption" (click)="onComment(item['_id'],i)">
           <i style="color: gray" class="material-icons" > comment </i>
           <h4>Comment</h4>
           <!-- {{item.comment_count}} -->
@@ -303,7 +308,7 @@
         </div>
        </div>
 
-        <div class="comment_box"style="width: 100%" *ngIf="isComment">
+        <div class="comment_box"style="width: 100%" *ngIf="item.isComment">
         <div class="feed__input">
           <form [formGroup]="commentForm" (ngSubmit)="commentPost(item._id)">
             <!-- <div> -->
