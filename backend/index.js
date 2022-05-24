@@ -1,7 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv'); // to use ENV_VARIABLE
-// const path = require('path');
+const path = require('path');
 
 
 // set up our express app
@@ -33,5 +33,12 @@ app.use(cors({
 // });
 app.use('/post', require('./router/posts.route'));
 app.use('/post', require('./router/comments.route'));
+
+app.use(express.static(__dirname + '/../dist/linkldn'));
+
+app.use('/', function (req, res) {
+  res.sendFile(path.join(__dirname, '/../src', 'index.html'));
+});
+
 
 module.exports = app;
