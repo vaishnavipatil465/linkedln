@@ -2,8 +2,8 @@
   "name": "linkldn",
   "version": "0.0.0",
   "engines": {
-    "node": "12.x",
-    "npm": "v16.13.1"
+    "node": "v16.13.1",
+    "npm": "8.1.3"
   },
   "repository": {
     "type": "git",
