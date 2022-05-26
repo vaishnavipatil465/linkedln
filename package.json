@@ -39,7 +39,9 @@
     "ngx-pagination": "^5.1.1",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
-    "zone.js": "~0.11.4"
+    "zone.js": "~0.11.4",
+    "node-input-validator": "^4.5.0"
+
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~13.3.1",
@@ -53,7 +55,6 @@
     "karma-coverage": "~2.1.0",
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "~1.7.0",
-    "node-input-validator": "^4.5.0",
     "nodemon": "^2.0.16",
     "typescript": "~4.6.2"
   }
